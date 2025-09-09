@@ -3,14 +3,7 @@ sequenceDiagram
     participant browser
     participant server
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    activate server
-    server-->>browser: HTML document
-    deactivate server
-
-    Note right of browser: The browser redirect to another URL from location header: /exampleapp/notes
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -20,7 +13,7 @@ sequenceDiagram
     server-->>browser: the css file
     deactivate server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     activate server
     server-->>browser: the JavaScript file
     deactivate server
@@ -29,7 +22,7 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: [{content: "r", date: "2025-09-08T18:38:05.733Z"}, {content: "", date: "2025-09-08T18:42:39.639Z"},…]
+    server-->>browser: [{content: "From Argentina to the world", date: "2025-09-08T18:04:18.916Z"},…]
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
